@@ -28,31 +28,11 @@ cd <директория-репозитория>
 Создай или отредактируй файл .env с переменными окружения:
 BOT_TOKEN=ваш_токен_бота
 BOT_USERNAME=имя_вашего_бота
+DB_URL=jdbc:postgresql://db:5432/bot_db
+DB_USER=ur_login
+DB_PASSWORD=ur_password
 
 Убедись, что токен и имя бота соответствуют твоему Telegram-боту.
-
-Файл application.yml в src/main/resources уже содержит базовую конфигурацию:
-server:
-port: 8080
-spring:
-datasource:
-url: ${DB_URL:jdbc:postgresql://localhost:5432/dbdb}
-username: ${DB_USER:postgres}
-password: ${DB_PASSWORD:1234}
-jpa:
-hibernate:
-ddl-auto: update
-show-sql: true
-properties:
-hibernate:
-dialect: org.hibernate.dialect.PostgreSQLDialect
-sql:
-init:
-mode: always
-data-locations: classpath:init.sql
-bot:
-token: ${BOT_TOKEN:7641856824:AAFw9Ay8iT30_nLm7gVoH7zFmZk7bcWSJBo}
-username: ${BOT_USERNAME:@jBlazzzyBot}
 
 
 Замени значения переменных окружения (BOT_TOKEN, BOT_USERNAME, DB_URL, DB_USER, DB_PASSWORD) при необходимости.
@@ -88,11 +68,11 @@ db: Запускает PostgreSQL с инициализацией из init.sql.
 
 Структура проекта
 
-BotLauncher.java: Инициализирует и регистрирует Telegram-бота.
+BotLauncher.java: Инициализирует и регистрирует Telegram бота.
 User.java: Сущность для хранения данных пользователей (chatId, username, state).
 Response.java: Сущность для хранения ответов форм (userId, name, email, rating, createdAt, isCompleted).
 TelegramBot.java: Основной класс бота, наследующий TelegramLongPollingBot.
-ReportService.java: Генерирует .docx отчет с таблицей завершенных ответов.
+ReportService.java: Генерирует .docx отчет с таблицей завершенных форм.
 ResponseRepository.java: Репозиторий JPA для сущности Response.
 BotService.java: Основной сервис, обрабатывающий команды, ввод форм и очистку устаревших форм.
 TgBotApplication.java: Точка входа Spring Boot приложения с поддержкой планирования и асинхронности.
@@ -105,27 +85,8 @@ application.yml: Основной файл конфигурации Spring Boot.
 application-test.yml: Конфигурация для тестового окружения с H2.
 .env: Файл с переменными окружения для локального запуска.
 
-Тестирование
-
-Тестовое окружение настроено в application-test.yml с использованием H2 базы данных.
-Тесты пока не реализованы. В будущем можно добавить тестовые сценарии для обработки форм, генерации отчетов и проверки таймаутов.
-
 Логирование
 
 Логи управляются через SLF4J и доступны в логах Docker:docker-compose logs bot
 
-
-Включен show-sql: true для отладки SQL-запросов.
-
-Участие в разработке
-
-Приветствуются вопросы или пулл-реквесты. Убедись, что код соответствует структуре проекта и включает соответствующее логирование.
-
-Лицензия
-
-Лицензия MIT (или укажи предпочитаемую лицензию).
-
-Контакты
-
-Для поддержки обращайся к авторам проекта или создавай проблему в репозитории.
-
+С Уважением, Даши-Нима Андреевич.

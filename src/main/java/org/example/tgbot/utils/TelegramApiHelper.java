@@ -29,8 +29,8 @@ public class TelegramApiHelper {
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow row = new KeyboardRow();
-        row.add(new KeyboardButton("Заполнить форму"));
-        row.add(new KeyboardButton("Отчет"));
+        row.add(new KeyboardButton("\uD83D\uDCDD Заполнить форму"));
+        row.add(new KeyboardButton("\uD83D\uDCCA Отчет"));
         keyboard.add(row);
         keyboardMarkup.setKeyboard(keyboard);
         keyboardMarkup.setResizeKeyboard(true);

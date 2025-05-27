@@ -6,9 +6,9 @@ services:
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - BOT_USERNAME=${BOT_USERNAME}
-      - DB_URL=jdbc:postgresql://db:5432/bot_db
-      - DB_USER=postgres
-      - DB_PASSWORD=1234
+      - DB_URL=${DB_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - db
     networks:
@@ -17,8 +17,8 @@ services:
     image: postgres:15
     environment:
       - POSTGRES_DB=bot_db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
       - db-data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql

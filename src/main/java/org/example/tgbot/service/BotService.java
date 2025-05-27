@@ -155,13 +155,13 @@ public class BotService {
     }
 
     private void handleNameInput(Long chatId, String input, User user, AbsSender bot) throws TelegramApiException {
-        if ("Заполнить форму".equals(input)) {
+        if ("\uD83D\uDCDD Заполнить форму".equals(input)) {
             user.setState(BotConstants.STATE_AWAITING_NAME);
             userRepository.saveAndFlush(user);
             TelegramApiHelper.sendMessage(bot, chatId, BotConstants.ASK_NAME_MESSAGE);
             return;
         }
-        if ("Отчет".equals(input)) {
+        if ("\uD83D\uDCCA Отчет".equals(input)) {
             handleCommand(chatId, "/report", user, bot);
             return;
         }
@@ -177,13 +177,13 @@ public class BotService {
     }
 
     private void handleEmailInput(Long chatId, String input, User user, AbsSender bot) throws TelegramApiException {
-        if ("Заполнить форму".equals(input)) {
+        if ("\uD83D\uDCDD Заполнить форму".equals(input)) {
             user.setState(BotConstants.STATE_AWAITING_NAME);
             userRepository.saveAndFlush(user);
             TelegramApiHelper.sendMessage(bot, chatId, BotConstants.ASK_NAME_MESSAGE);
             return;
         }
-        if ("Отчет".equals(input)) {
+        if ("\uD83D\uDCCA Отчет".equals(input)) {
             handleCommand(chatId, "/report", user, bot);
             return;
         }
@@ -205,13 +205,13 @@ public class BotService {
     }
 
     private void handleRatingInput(Long chatId, String input, User user, AbsSender bot) throws TelegramApiException {
-        if ("Заполнить форму".equals(input)) {
+        if ("\uD83D\uDCDD Заполнить форму".equals(input)) {
             user.setState(BotConstants.STATE_AWAITING_NAME);
             userRepository.saveAndFlush(user);
             TelegramApiHelper.sendMessage(bot, chatId, BotConstants.ASK_NAME_MESSAGE);
             return;
         }
-        if ("Отчет".equals(input)) {
+        if ("\uD83D\uDCCA Отчет".equals(input)) {
             handleCommand(chatId, "/report", user, bot);
             return;
         }
@@ -240,11 +240,11 @@ public class BotService {
     }
 
     private void handleDefaultInput(Long chatId, String input, User user, AbsSender bot) throws TelegramApiException {
-        if ("Заполнить форму".equals(input)) {
+        if ("\uD83D\uDCDD Заполнить форму".equals(input)) {
             user.setState(BotConstants.STATE_AWAITING_NAME);
             userRepository.saveAndFlush(user);
             TelegramApiHelper.sendMessage(bot, chatId, BotConstants.ASK_NAME_MESSAGE);
-        } else if ("Отчет".equals(input)) {
+        } else if ("\uD83D\uDCCA Отчет".equals(input)) {
             handleCommand(chatId, "/report", user, bot);
         } else {
             TelegramApiHelper.sendMessage(bot, chatId, BotConstants.UNKNOWN_COMMAND_MESSAGE);
